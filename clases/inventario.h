@@ -11,7 +11,7 @@ private:
     double precio;
     bool estado;
 public:
-    Inventario(string ID, string Nombre, string Categoria,int Cantidad, double Precio, bool Estado){}
+    Inventario(string ID, string Nombre, string Categoria,int Cantidad, double Precio, bool Estado);
     string getID();
 };
 

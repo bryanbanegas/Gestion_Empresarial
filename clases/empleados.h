@@ -2,16 +2,27 @@
 #define EMPLEADOS_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
-class Empleados{
-private:
-    string id, nombre, departamento, puesto; 
+struct datosEmpleados{
+    int id;
+    string nombre;
+    string departamento;
+    string puesto; 
     double salario;
     bool estado;
+};
+
+class Empleados{
 public:
-    Empleados(string ID, string Nombre, string Departamento, string Puesto, double Salario, bool Estado){}
-    string getID();
+    datosEmpleados *claves;
+    int numeroClaves;
+    Empleados **hijos;
+    bool hoja;
+
+    Empleados(int num);
+    void imprimir();
 };
 
 #endif

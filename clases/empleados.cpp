@@ -1,14 +1,14 @@
 #include "empleados.h"
 
-Empleados::Empleados(string ID, string Nombre, string Departamento, string Puesto, double Salario, bool Estado){
-    id=ID;
-    nombre=Nombre;
-    departamento=Departamento; 
-    puesto=Puesto;
-    salario=Salario;
-    estado=Estado;
+Empleados::Empleados(int num){
+    numeroClaves=0;
+    hoja=true;
+    claves=new datosEmpleados[(2*num)-1];
+    hijos=new Empleados*[(2*num)];
 }
 
-string Empleados::getID(){
-    return id;
+void Empleados::imprimir(){
+    for(int i=0;i<numeroClaves;i++){
+        cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].nombre<<endl;
+    }
 }

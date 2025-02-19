@@ -11,7 +11,7 @@ private:
     vector<string> historialCompras;
     double saldo;
 public:
-    Clientes(string ID, string Nombre, string Correo, string telefono, double Saldo){}
+    Clientes(string ID, string Nombre, string Correo, string telefono, double Saldo);
     string getID();
 };
 

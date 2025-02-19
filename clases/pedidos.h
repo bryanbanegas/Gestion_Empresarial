@@ -11,7 +11,7 @@ private:
     vector<string> productosSolicitados;
     bool estado;
 public:
-    Pedidos(string ID, string cliente, string Fecha, bool Estado){}
+    Pedidos(string ID, string cliente, string Fecha, bool Estado);
     string getID();
 };
 

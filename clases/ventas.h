@@ -12,7 +12,7 @@ private:
     int cantidad;
     double total;
 public:
-    Ventas(string IDVenta, string IDCliente, string Fecha, int Cantidad, double Total){}
+    Ventas(string IDVenta, string IDCliente, string Fecha, int Cantidad, double Total);
     string getIDVenta();
     string getIDCliente();
 };
