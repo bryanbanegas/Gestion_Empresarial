@@ -1,13 +1,15 @@
 #include "pedidos.h"
 
-Pedidos::Pedidos(string ID, string Cliente, string Fecha, bool Estado){
-    id=ID;
-    cliente=Cliente; 
-    fecha=Fecha;
-    estado=Estado;
+Pedidos::Pedidos(int num){
+    numeroClaves=0;
+    hoja=true;
+    claves=new datosPedidos[(2*num)-1];
+    hijos=new Pedidos*[(2*num)];
 }
 
-string Pedidos::getID(){
-    return id;
+void Pedidos::imprimir(){
+    for(int i=0;i<numeroClaves;i++){
+        cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].cliente<<endl;
+    }
 }
 

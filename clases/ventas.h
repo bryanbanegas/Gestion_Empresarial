@@ -3,18 +3,27 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 using namespace std;
 
-class Ventas{
-private:
-    string idVenta, idCliente, fecha;
+struct datosVentas{
+    int idVenta;
+    int idCliente;
+    string fecha;
     vector<string> productosVendidos;
     int cantidad;
     double total;
+};
+
+class Ventas{
 public:
-    Ventas(string IDVenta, string IDCliente, string Fecha, int Cantidad, double Total);
-    string getIDVenta();
-    string getIDCliente();
+    datosVentas *claves;
+    int numeroClaves;
+    Ventas **hijos;
+    bool hoja;
+
+    Ventas(int num);
+    void imprimir();
 };
 
 #endif

@@ -1,23 +1,22 @@
-#include "arbolEmpleados.h"
+#include "arbolVentas.h"
 
-ArbolEmpleados::ArbolEmpleados(int num){
+ArbolVentas::ArbolVentas(int num){
     this->num=num;
-    root=new Empleados(num);
+    root=new Ventas(num);
 }
 
-void ArbolEmpleados::buscar(int clave){
+void ArbolVentas::buscar(int clave){
 
 }
 
-void ArbolEmpleados::insertar(int clave, string nombre, string departamento, string puesto, double salario, bool estado){
-    dato.id=clave;
-    dato.nombre=nombre;
-    dato.departamento=departamento;
-    dato.puesto=puesto;
-    dato.salario=salario;
-    dato.estado=estado;
+void ArbolVentas::insertar(int clave, int idcliente, string fecha, int cantidad, double total){
+    dato.idVenta=clave;
+    dato.idCliente=idcliente;
+    dato.fecha=fecha;
+    dato.cantidad=cantidad;
+    dato.total=total;
     if(root->numeroClaves==((2*num)-1)){
-        Empleados *nuevaRoot=new Empleados(num);
+        Ventas *nuevaRoot=new Ventas(num);
         root=nuevaRoot;
         nuevaRoot->hoja=false;
         nuevaRoot->numeroClaves=0;
@@ -29,8 +28,8 @@ void ArbolEmpleados::insertar(int clave, string nombre, string departamento, str
     }
 }
 
-void ArbolEmpleados::split(Empleados *nodo1, int a, Empleados *nodo2){
-    Empleados *temp=new Empleados(num);
+void ArbolVentas::split(Ventas *nodo1, int a, Ventas *nodo2){
+    Ventas *temp=new Ventas(num);
     temp->hoja=nodo2->hoja;
     temp->numeroClaves=num-1;
     for(int i=0;i<(num-1);i++){
@@ -53,28 +52,27 @@ void ArbolEmpleados::split(Empleados *nodo1, int a, Empleados *nodo2){
     nodo1->numeroClaves++;
 }
 
-void ArbolEmpleados::nonfullInsert(Empleados *nodo,int clave){
+void ArbolVentas::nonfullInsert(Ventas *nodo,int clave){
     if(nodo->hoja){
         int i=nodo->numeroClaves;
-        while(i>=1&&clave<nodo->claves[i-1].id){
+        while(i>=1&&clave<nodo->claves[i-1].idVenta){
             nodo->claves[i]=nodo->claves[i-1];
             i--;
         }
-        nodo->claves[i].id=dato.id;
-        nodo->claves[i].nombre=dato.nombre;
-        nodo->claves[i].departamento=dato.departamento;
-        nodo->claves[i].estado=dato.estado;
-        nodo->claves[i].puesto=dato.puesto;
-        nodo->claves[i].salario=dato.salario;
+        nodo->claves[i].idVenta=dato.idVenta;
+        nodo->claves[i].idCliente=dato.idCliente;
+        nodo->claves[i].fecha=dato.fecha;
+        nodo->claves[i].cantidad=dato.cantidad;
+        nodo->claves[i].total=dato.total;
         nodo->numeroClaves++;
     }else{
         int i=0;
-        while(i<nodo->numeroClaves&&clave>nodo->claves[i].id){
+        while(i<nodo->numeroClaves&&clave>nodo->claves[i].idVenta){
             i++;
         }
         if(nodo->hijos[i]->numeroClaves==((2*num)-1)){
             
-            if(clave>nodo->claves[i].id){
+            if(clave>nodo->claves[i].idVenta){
                 i++;
             }
         }
@@ -82,7 +80,7 @@ void ArbolEmpleados::nonfullInsert(Empleados *nodo,int clave){
     }
 }
 
-void ArbolEmpleados::print(Empleados nodo){
+void ArbolVentas::print(Ventas nodo){
     nodo.imprimir();
 
     if(!nodo.hoja){
@@ -95,6 +93,6 @@ void ArbolEmpleados::print(Empleados nodo){
     }
 }
 
-void ArbolEmpleados::imprimir(){
+void ArbolVentas::imprimir(){
     print(*root);
 }

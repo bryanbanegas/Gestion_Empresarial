@@ -2,17 +2,27 @@
 #define INVENTARIO_H
 
 #include <string>
+#include <iostream>
 using namespace std;
 
-class Inventario{
-private:
-    string id, nombre, categoria;
+struct datosInventario{
+    int id;
+    string nombre;
+    string categoria;
     int cantidad; 
     double precio;
     bool estado;
+};
+
+class Inventario{
 public:
-    Inventario(string ID, string Nombre, string Categoria,int Cantidad, double Precio, bool Estado);
-    string getID();
+    datosInventario *claves;
+    int numeroClaves;
+    Inventario **hijos;
+    bool hoja;
+
+    Inventario(int num);
+    void imprimir();
 };
 
 #endif

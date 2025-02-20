@@ -1,13 +1,14 @@
 #include "clientes.h"
 
-Clientes::Clientes(string ID, string Nombre, string Correo, string Telefono, double Saldo){
-    id=ID;
-    nombre=Nombre;
-    correo=Correo; 
-    telefono=Telefono;
-    saldo=Saldo;
+Clientes::Clientes(int num){
+    numeroClaves=0;
+    hoja=true;
+    claves=new datosClientes[(2*num)-1];
+    hijos=new Clientes*[(2*num)];
 }
 
-string Clientes::getID(){
-    return id;
+void Clientes::imprimir(){
+    for(int i=0;i<numeroClaves;i++){
+        cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].nombre<<endl;
+    }
 }

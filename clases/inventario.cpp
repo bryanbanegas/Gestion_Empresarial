@@ -1,14 +1,14 @@
 #include "inventario.h"
 
-Inventario::Inventario(string ID, string Nombre, string Categoria, int Cantidad, double Precio, bool Estado){
-    id=ID;
-    nombre=Nombre;
-    categoria=Categoria; 
-    cantidad=Cantidad;
-    precio=Precio;
-    estado=Estado;
+Inventario::Inventario(int num){
+    numeroClaves=0;
+    hoja=true;
+    claves=new datosInventario[(2*num)-1];
+    hijos=new Inventario*[(2*num)];
 }
 
-string Inventario::getID(){
-    return id;
+void Inventario::imprimir(){
+    for(int i=0;i<numeroClaves;i++){
+        cout<<"ID: "<<claves[i].id<<" Nombre: "<<claves[i].nombre<<endl;
+    }
 }
